@@ -36,12 +36,12 @@ request.post(authOptions, function(error, response, body) {
       },
       json: true
     };
-    do {
+    while(options.url !== 'undefined') {
       console.log("Schleife")
       request.get(options, function(error, response, body) {
         console.log(body);
         options.url = body.tracks.next;
       });
-    } while(options.url !== 'undefined');
+    }
   }
 });
