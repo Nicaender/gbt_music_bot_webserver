@@ -118,7 +118,7 @@ app.get('/callback', function(req, res) {
             console.log(playlist_id[10].href);
 
             var options3 = {
-              url: 'https://api.spotify.com/v1/playlists/' + playlist_id[10].href + '/tracks',
+              url: playlist_id[10].href + '/tracks',
               headers: { 'Authorization': 'Bearer ' + access_token },
               json: true
             };
