@@ -37,14 +37,21 @@ request.post(authOptions, function(error, response, body) {
       json: true
     };
 
+    var tracks = [];
+
     function requestData(option) {
-      request.get(options, function(error, response, body) {
-        console.log(body);
-        window[options.url] = body.tracks.next;
+      "use strict";
+      let optiontmp = option;
+      request.get(optiontmp, function(error, response, body) {
+        for(let i = 0; i < body.tracks.limit; i++) {
+          tracks.push(body.tracks.items[i])
+        }
+        optiontmp.url = body.tracks.next;
+        if(optiontmp.url !== 'undefined')
+          requestData(optiontmp)
+        console.log(tracks);
       });
     }
     requestData(options);
-    console.log("Success!!!");
-    console.log(options.url);
   }
 });
