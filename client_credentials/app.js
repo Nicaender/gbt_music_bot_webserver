@@ -39,37 +39,35 @@ request.post(authOptions, function(error, response, body) {
 
     var tracks = [];
 
+    function addSongs(songs) {
+      for(i = 0; i < songs.length; i++) {
+        tracks.push(songs[i]);
+      }
+    }
+
+    function anotherRequest(option, page) {
+      if(page > 0) {
+        request.get(option, function(error, response, body) {
+          console.log(body);
+          songs = body.tracks.items;
+          addSongs(songs);
+          if(page > 1)
+            option.url = body.tracks.next;
+          anotherRequest(option, page--);
+        });
+      }
+    }
+
     request.get(options, function(error, response, body) {
       console.log(body);
       page = body.tracks.total / 100;
       songs = body.tracks.items;
-      console.log(songs.length);
-      // while(page > 0)
+      addSongs(songs);
 
-      // for(let i = 0; i < body.tracks.limit; i++) {
-      //   tracks.push(body.tracks.items[i])
-      // }
-      // if(typeof body.tracks.next !== 'undefined') {
-      //   optiontmp.url = body.tracks.next;
-      //   requestData(optiontmp)
-      // }
+      if(page > 0) {
+        options.url = body.tracks.next;
+        anotherRequest(options, page);
+      }
     });
-
-    // function requestData(option) {
-    //   "use strict";
-    //   let optiontmp = option;
-    //   request.get(optiontmp, function(error, response, body) {
-    //     var jsonObject = JSON.parse(body);
-    //     console.log(jsonObject);
-    //     for(let i = 0; i < body.tracks.limit; i++) {
-    //       tracks.push(body.tracks.items[i])
-    //     }
-    //     if(typeof body.tracks.next !== 'undefined') {
-    //       optiontmp.url = body.tracks.next;
-    //       requestData(optiontmp)
-    //     }
-    //   });
-    // }
-    // requestData(options);
   }
 });
