@@ -53,7 +53,7 @@ request.post(authOptions, function(error, response, body) {
           addSongs(songs);
           if(page > 1)
             option.url = body.next;
-          anotherRequest(option, page--);
+          anotherRequest(option, --page);
         });
       }
     }
