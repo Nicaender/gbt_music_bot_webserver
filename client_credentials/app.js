@@ -43,14 +43,15 @@ request.post(authOptions, function(error, response, body) {
       "use strict";
       let optiontmp = option;
       request.get(optiontmp, function(error, response, body) {
-        console.log(body);
+        var jsonObject = JSON.parse(body);
+        console.log(jsonObject);
         // for(let i = 0; i < body.tracks.limit; i++) {
         //   tracks.push(body.tracks.items[i])
         // }
-        if(typeof body.tracks.next !== 'undefined') {
-          optiontmp.url = body.tracks.next;
-          requestData(optiontmp)
-        }
+        // if(typeof body.tracks.next !== 'undefined') {
+        //   optiontmp.url = body.tracks.next;
+        //   requestData(optiontmp)
+        // }
       });
     }
     requestData(options);
