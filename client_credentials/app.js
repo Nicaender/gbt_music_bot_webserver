@@ -69,6 +69,6 @@ request.post(authOptions, function(error, response, body) {
       }
     });
 
-    setTimeout(() => {console.log(tracks); }, 5000);
+    setTimeout(() => {console.log(tracks.length); }, 5000);
   }
 });
