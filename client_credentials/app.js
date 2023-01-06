@@ -49,7 +49,7 @@ request.post(authOptions, function(error, response, body) {
       if(page > 0) {
         request.get(option, function(error, response, body) {
           console.log(body);
-          songs = body.tracks.items;
+          songs = body.items;
           addSongs(songs);
           if(page > 1)
             option.url = body.tracks.next;
