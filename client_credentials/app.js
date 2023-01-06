@@ -40,10 +40,11 @@ request.post(authOptions, function(error, response, body) {
     function requestData(option) {
       request.get(options, function(error, response, body) {
         console.log(body);
-        options.url = body.tracks.next;
+        window[options.url] = body.tracks.next;
       });
     }
     requestData(options);
+    console.log("Success!!!");
     console.log(options.url);
   }
 });
