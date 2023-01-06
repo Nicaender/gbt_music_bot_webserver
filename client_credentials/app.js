@@ -39,7 +39,6 @@ request.post(authOptions, function(error, response, body) {
 
     function requestData(option) {
       request.get(options, function(error, response, body) {
-        console.log(body);
         return body;
       });
     }
