@@ -36,11 +36,12 @@ request.post(authOptions, function(error, response, body) {
       },
       json: true
     };
-    do {
+    // do {
       request.get(options, function(error, response, body) {
         console.log(body);
         options.url = body.next;
+        console.log(options.url);
       });
-    } while(options.url);
+    // } while(options.url);
   }
 });
