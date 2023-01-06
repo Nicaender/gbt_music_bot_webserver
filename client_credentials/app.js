@@ -43,7 +43,7 @@ request.post(authOptions, function(error, response, body) {
         options.url = body.items.next;
       });
     }
-    while(options.url !== 'undefined')
-      requestData(options);
+    requestData(options);
+    console.log(options.url);
   }
 });
