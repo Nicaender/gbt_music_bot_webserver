@@ -59,6 +59,7 @@ request.post(authOptions, function(error, response, body) {
     }
 
     request.get(options, function(error, response, body) {
+      console.log(body);
       page = Math.floor (body.tracks.total / 100);
       songs = body.tracks.items;
       addSongs(songs);
