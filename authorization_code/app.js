@@ -100,18 +100,18 @@ app.get('/callback', function(req, res) {
 
         var user_id;
 
-        var options2 = {
-          url: 'https://api.spotify.com/v1/users/' + user_id + '/playlists',
-          headers: { 'Authorization': 'Bearer ' + access_token },
-          json: true
-        };
-
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
           user_id = body.id;
           console.log(user_id);
         });
+
+        var options2 = {
+          url: 'https://api.spotify.com/v1/users/' + user_id + '/playlists',
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          json: true
+        };
 
         request.get(options2, function(error, response, body) {
           console.log(body);
