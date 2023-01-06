@@ -127,7 +127,7 @@ app.get('/callback', function(req, res) {
               console.log(body);
 
               var options4 = {
-                url: playlist_id[10].href + '/tracks' + '?offset=100%limit=100',
+                url: body.next,
                 headers: { 'Authorization': 'Bearer ' + access_token },
                 json: true
               };
