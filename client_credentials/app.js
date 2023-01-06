@@ -54,8 +54,6 @@ request.post(authOptions, function(error, response, body) {
             option.url = body.next;
             anotherRequest(option, --page);
           }
-          if(page == 1)
-            console.log(tracks);
         });
       }
     }
@@ -70,5 +68,7 @@ request.post(authOptions, function(error, response, body) {
         anotherRequest(options, page);
       }
     });
+
+    setTimeout(5000, console.log(tracks));
   }
 });
