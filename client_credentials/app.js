@@ -52,9 +52,10 @@ request.post(authOptions, function(error, response, body) {
           console.log(page);
           songs = body.items;
           addSongs(songs);
-          if(page > 1)
+          if(page > 1) {
             option.url = body.next;
-          anotherRequest(option, --page);
+            anotherRequest(option, --page);
+          }
         });
       }
     }
