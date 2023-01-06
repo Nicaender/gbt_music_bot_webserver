@@ -47,9 +47,10 @@ request.post(authOptions, function(error, response, body) {
         // for(let i = 0; i < body.tracks.limit; i++) {
         //   tracks.push(body.tracks.items[i])
         // }
-        optiontmp.url = body.tracks.next;
-        if(optiontmp.url !== 'undefined')
+        if(body.tracks.next) {
+          optiontmp.url = body.tracks.next;
           requestData(optiontmp)
+        }
       });
     }
     requestData(options);
