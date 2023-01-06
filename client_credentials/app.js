@@ -48,8 +48,7 @@ request.post(authOptions, function(error, response, body) {
     function anotherRequest(option, page) {
       if(page > 0) {
         request.get(option, function(error, response, body) {
-          console.log(body);
-          console.log(page);
+          console.log(tracks);
           songs = body.items;
           addSongs(songs);
           if(page > 1) {
@@ -61,10 +60,10 @@ request.post(authOptions, function(error, response, body) {
     }
 
     request.get(options, function(error, response, body) {
-      console.log(body);
       page = Math.floor (body.tracks.total / 100);
       songs = body.tracks.items;
       addSongs(songs);
+      console.log(tracks);
 
       if(page > 0) {
         options.url = body.tracks.next;
