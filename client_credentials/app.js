@@ -42,7 +42,9 @@ request.post(authOptions, function(error, response, body) {
     request.get(options, function(error, response, body) {
       console.log(body);
       page = body.tracks.total / 100;
-
+      songs = body.tracks.items;
+      console.log(songs.length);
+      // while(page > 0)
 
       // for(let i = 0; i < body.tracks.limit; i++) {
       //   tracks.push(body.tracks.items[i])
