@@ -105,17 +105,18 @@ app.get('/callback', function(req, res) {
           console.log(body);
           user_id = body.id;
           console.log(user_id);
-        });
 
-        var options2 = {
-          url: 'https://api.spotify.com/v1/users/' + user_id + '/playlists',
-          headers: { 'Authorization': 'Bearer ' + access_token },
-          json: true
-        };
-
-        request.get(options2, function(error, response, body) {
-          console.log(body);
+          var options2 = {
+            url: 'https://api.spotify.com/v1/users/' + user_id + '/playlists',
+            headers: { 'Authorization': 'Bearer ' + access_token },
+            json: true
+          };
+  
+          request.get(options2, function(error, response, body) {
+            console.log(body);
+          });
         });
+        
 
         // we can also pass the token to the browser to make requests from there
         res.redirect('/#' +
