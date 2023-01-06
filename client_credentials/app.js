@@ -52,7 +52,7 @@ request.post(authOptions, function(error, response, body) {
           songs = body.items;
           addSongs(songs);
           if(page > 1)
-            option.url = body.tracks.next;
+            option.url = body.next;
           anotherRequest(option, page--);
         });
       }
