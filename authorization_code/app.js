@@ -115,7 +115,17 @@ app.get('/callback', function(req, res) {
             console.log(body);
             var playlist_id;
             playlist_id = body.items;
-            console.log(playlist_id[2].href);
+            console.log(playlist_id[10].href);
+
+            var options3 = {
+              url: 'https://api.spotify.com/v1/playlists/' + playlist_id[10].href + '/tracks',
+              headers: { 'Authorization': 'Bearer ' + access_token },
+              json: true
+            };
+
+            request.get(options3, function(error, response, body) {
+              console.log(body);
+            });
           });
         });
         
