@@ -125,6 +125,16 @@ app.get('/callback', function(req, res) {
 
             request.get(options3, function(error, response, body) {
               console.log(body);
+
+              var options4 = {
+                url: playlist_id[10].href + '/tracks' + '?offset=100%limit=100',
+                headers: { 'Authorization': 'Bearer ' + access_token },
+                json: true
+              };
+
+              request.get(options4, function(error, response, body) {
+                console.log(body);
+              });
             });
           });
         });
