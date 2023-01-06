@@ -115,7 +115,7 @@ app.get('/callback', function(req, res) {
             console.log(body);
             var playlist_id;
             playlist_id = body.items;
-            console.log(playlist_id);
+            console.log(playlist_id[2].href);
           });
         });
         
