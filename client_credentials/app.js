@@ -39,7 +39,7 @@ request.post(authOptions, function(error, response, body) {
     // do {
       request.get(options, function(error, response, body) {
         console.log(body);
-        options.url = body.next;
+        options.url = body.tracks.next;
         console.log(options);
       });
     // } while(options.url);
