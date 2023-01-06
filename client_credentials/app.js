@@ -37,6 +37,7 @@ request.post(authOptions, function(error, response, body) {
       json: true
     };
     do {
+      console.log("Schleife")
       request.get(options, function(error, response, body) {
         console.log(body);
         options.url = body.tracks.next;
