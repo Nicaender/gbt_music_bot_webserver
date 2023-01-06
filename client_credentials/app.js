@@ -44,9 +44,9 @@ request.post(authOptions, function(error, response, body) {
       let optiontmp = option;
       request.get(optiontmp, function(error, response, body) {
         console.log(body);
-        for(let i = 0; i < body.tracks.limit; i++) {
-          tracks.push(body.tracks.items[i])
-        }
+        // for(let i = 0; i < body.tracks.limit; i++) {
+        //   tracks.push(body.tracks.items[i])
+        // }
         optiontmp.url = body.tracks.next;
         if(optiontmp.url !== 'undefined')
           requestData(optiontmp)
