@@ -39,7 +39,7 @@ request.post(authOptions, function(error, response, body) {
 
     function requestData(option) {
       request.get(options, function(error, response, body) {
-        return body;
+        return JSON.parse(body);
       });
     }
     var track = requestData(options);
