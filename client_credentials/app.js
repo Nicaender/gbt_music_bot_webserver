@@ -40,7 +40,7 @@ request.post(authOptions, function(error, response, body) {
       console.log("Schleife")
       request.get(options, function(error, response, body) {
         console.log(body);
-        options.url = body.tracks.next;
+        window[options.url] = body.tracks.next;
       });
     }
   }
