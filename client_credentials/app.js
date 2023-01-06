@@ -37,14 +37,14 @@ request.post(authOptions, function(error, response, body) {
       json: true
     };
 
-    function request(options) {
+    function requestData(options) {
       request.get(options, function(error, response, body) {
         console.log(body);
         return body;
       });
     }
 
-    var tracks = request(options);
+    var tracks = requestData(options);
     console.log(tracks);
   }
 });
